@@ -22,7 +22,7 @@ header {
 
 .image-container {
   min-width: 150px;
-  max-width: 20vw;
+  max-width: 15vw;
 }
 
 img {
@@ -47,4 +47,26 @@ img {
 .main-container-inner {
   border-top: 1px solid grey;
   max-width: 50vw;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.footer-inner {
+  border-bottom: 1px solid gray;
+  height: 2px;
+  width: 50%;
+}
+
+.delimeter {
+  border-right: 1px solid grey;
+  margin-right: 12px;
+}
+
+a {
+  display: inline;
+  height: 100%;
 }
