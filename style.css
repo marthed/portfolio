@@ -7,22 +7,40 @@ html, body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
+.main-container {
+  width: 100vw;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  flex-flow: column;
+}
+
+.main-container-inner {
+  border-top: 1px solid grey;
+  max-width: 50vw;
+  min-width: 220px
+}
+
+
 .header-container {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-
-.header-container-wrapper {
   background-color: black;
   color: white;
+  margin-bottom: 12px;
+}
+
+/* .header-container-wrapper {
+  width: 100vw;
   margin-top: 2vh;
-  margin-bottom: 2vh;
   display: flex;
   justify-content: center;
-}
+} */
 
 header {
   color: white;
@@ -41,8 +59,6 @@ img {
 }
 
 
-
-
 .image-container {
   padding: 12px;
   min-width: 150px;
@@ -52,6 +68,23 @@ img {
 .contact-info {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.menu {
+  display: flex;
+  background-color: black;
+}
+
+.menu-option {
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  margin-left: 12px;
+}
+
+.menu-option:hover {
+  color:darkgray;
 }
 
 .icons {
@@ -69,21 +102,6 @@ img {
 
 .rounded {
   border-radius: 50%;
-}
-
-.main-container {
-  margin-top: 2vh;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  flex-flow: column;
-}
-
-.main-container-inner {
-  border-top: 1px solid grey;
-  max-width: 50vw;
 }
 
 .footer {
