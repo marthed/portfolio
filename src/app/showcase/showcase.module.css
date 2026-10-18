@@ -1,0 +1,158 @@
+/* Flat color, white type, the work in the middle. Same in both color schemes:
+   every slide sets its own background. */
+
+:global(html):has(.page) {
+  scroll-snap-type: y mandatory;
+}
+
+.page {
+  color: #fff;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.page a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.page a:hover,
+.page a:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.slide {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: var(--slide-bg);
+  scroll-snap-align: start;
+}
+
+.top {
+  max-width: 19rem;
+}
+
+.label {
+  opacity: 0.72;
+}
+
+.headline {
+  margin-top: 0.75rem;
+  font-size: 1.5625rem;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -0.005em;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: 1.5rem 0;
+}
+
+/* Sized by height so a slide never needs scrolling on a desktop screen. */
+.work {
+  width: auto;
+  max-width: min(100%, 64rem);
+  max-height: 70dvh;
+  object-fit: contain;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.28);
+}
+
+.portrait {
+  width: min(70vw, 26rem);
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(1) contrast(1.08);
+  mix-blend-mode: luminosity;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.counter {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.72;
+}
+
+.textSlide .prose {
+  align-self: center;
+  max-width: 40rem;
+  padding: 2rem 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.5625rem);
+  line-height: 1.32;
+}
+
+.prose p + p {
+  margin-top: 1em;
+}
+
+/* On wide screens the text floats over the slide, top-left, as in a deck,
+   and the work takes the full height. */
+@media (min-width: 900px) and (min-height: 600px) {
+  .slide {
+    position: relative;
+    grid-template-rows: 1fr;
+    height: 100dvh;
+    padding: 0;
+  }
+
+  .top,
+  .bottom {
+    position: absolute;
+    left: 1.25rem;
+    z-index: 1;
+  }
+
+  .top {
+    top: 1.25rem;
+  }
+
+  .bottom {
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .stage {
+    padding: 4rem 22rem 4rem 22rem;
+  }
+
+  .work {
+    max-height: 80dvh;
+  }
+
+  .textSlide .prose {
+    justify-self: center;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) and (min-height: 600px) {
+  .stage {
+    padding: 4rem 3rem 4rem 21rem;
+  }
+}
+
+@media (max-height: 599px), (max-width: 899px) {
+  :global(html):has(.page) {
+    scroll-snap-type: y proximity;
+  }
+}
